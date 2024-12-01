@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "874b8ac6-2370-434e-9162-09b98ff63099",
+		"name": "SpringSecurity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23490542"
+	},
+	"item": [
+		{
+			"name": "csrf token generation",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "alex",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "huxly",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/security/csrf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"security",
+						"csrf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "session token generation",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "alex",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "huxly",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/security/sessionid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"security",
+						"sessionid"
+					]
+				},
+				"description": "session token generation"
+			},
+			"response": []
+		},
+		{
+			"name": "Student List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "allan",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "alex",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/spring-security/student/getstudent",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"spring-security",
+						"student",
+						"getstudent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login(Token)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \r\n    \"firstName\":\"rahul\",\r\n    \"password\":\"roy\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/spring-security/loginuser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"spring-security",
+						"loginuser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Student",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "allan",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "jyan",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "6OQfU7rPTXeaVK7aHoK5hMfnBa6BNthlsT6B8_WS_gH_TnTD3tAvYIOqKUS3YpjoKa-NvPXTKM-wBr1I1waxypCgnDfGL0an",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":3,\r\n    \"firstName\":\"alex\",\r\n    \"lastName\":\"alex\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/spring-security/student/addstudent",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"spring-security",
+						"student",
+						"addstudent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save User",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"6\",\r\n    \"firstName\":\"rahul\",\r\n    \"password\":\"john\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/spring-security/saveuser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"spring-security",
+						"saveuser"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
